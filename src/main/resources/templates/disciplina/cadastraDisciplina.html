@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+		
+		<head>
+		
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+		
+		</head>
+	
+	
+		<meta charset="UTF-8">
+		<title>Cadastro de Disciplina</title>
+		
+		
+		<body>
+		
+			<div class="container">
+				 
+				 <div class = "panel-heading" align="center">
+				 
+				 	<div class = "text-center">
+				 	
+				 		<strong>Cadastro de Disciplina</strong>
+				 	
+				 	</div>
+				 	
+				 	<div class = "panel-body border">
+				 	
+				 		<form class = "form-horizontal" th:action="@{/disciplina/salvar}" th:object="${disciplina}" method="post" style="margin: 10px;">
+				 		
+				 			<div class = "form-group">
+				 			
+				 				<fieldset>
+				 				
+				 					
+				 					<div class="form-group row">
+				 					
+				 						<label>NOME</label>
+				 						<input type="text" th:field="*{nome}" class="form-control input-sm" autofocus="autofocus" placeholder="Informe o nome" maxlength="50"/>
+				 					
+				 					</div>
+				 					
+				 					
+				 					<div class="form-group row">
+				 					
+				 						<label>DESCRIÇÃO</label>
+				 						<input type="text" th:field="*{descricao}" class="form-control input-sm" autofocus="autofocus" placeholder="Informe a descrição" maxlength="50"/>
+				 					
+				 					</div>
+				 				
+				 				</fieldset>
+				 				
+				 			
+				 			</div >
+				 			
+				 			
+				 			<div align="center">
+				 			
+				 				<button type="submit" class="btn btn-sm btn-success">Salvar</button>
+				 				<a th:href="@{/disciplina/listar}" class="btn btn-sm btn-default">Cancelar</a>
+				 			
+				 			</div>
+				 		
+				 		
+				 		</form>
+				 	
+				 	</div>
+				 
+				 </div>
+				 
+			</div>
+			
+		
+		</body>
+		
+	</html>

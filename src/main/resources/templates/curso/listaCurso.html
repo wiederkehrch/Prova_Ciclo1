@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+		
+		<head>
+		
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+		
+		</head>
+	
+	
+		<meta charset="UTF-8">
+		<title>Listagem de Cursos</title>
+		
+		
+		<body>
+		
+			<div class="container">
+				 
+				 <div class = "panel-default">
+				 
+				 	<div class = "text-center">
+				 	
+				 		<h1 class= "ha mb-4">Listagem de Cursos</h1>
+				 	
+				 	</div>
+				 	
+				 	<div class = "panel-body">
+				 	
+				 		<div class = "table-responsive">
+				 		
+				 			<table class = "table table-sm tabel-striped table-hover table-bordered">
+				 			
+				 				<!--Cabeçalho da tabela-->
+				 				<thead>
+				 				
+				 					<tr>
+				 					
+				 						<th>ID</th>
+				 						<th>NOME</th>
+				 						<th>DESCRIÇÃO</th>
+				 						<th>PROFESSOR</th>
+				 						<th>DISCIPLINA</th>
+				 						<th></th>
+				 					
+				 					</tr>
+				 				
+				 				</thead>
+				 				
+				 				<!--Corpo da tabela-->
+				 				<tbody>
+				 				
+				 					<tr th:each ="curso:${cursos}">
+				 					
+				 						<td th:text ="${curso.id}"></td>
+				 						<td th:text ="${curso.nome}"></td>
+				 						<td th:text ="${curso.descricao}"></td>
+				 						<td th:text ="${curso.professor.nome}"></td>
+				 						<td th:text ="${curso.disciplina.nome}"></td>
+				 						<td>
+				 						
+				 							<div class="btn-group pull-right">
+				 							
+				 								<a class="btn btn-sm btn-primary" th:href="@{/curso/alterar/{id} (id=${curso.id})}">Alterar</a>
+				 								<a class="delete btn-sm btn-danger" th:href="@{/curso/deletar/{id} (id=${curso.id})}">Excluir</a>
+				 							
+				 							</div>
+				 						
+				 						</td>
+				 					
+				 					</tr>
+				 				
+				 				</tbody>
+				 			
+				 			</table>
+				 		
+				 		</div>
+				 	
+				 	</div>
+				 
+				 </div>
+				
+					<a th:href="@{/curso/cadastrar}" class="btn btn-sm btn-success">Cadastrar Novo Curso</a>
+				 
+			</div>		
+		
+		</body>
+		
+	</html>
